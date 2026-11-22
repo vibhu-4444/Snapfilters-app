@@ -43,7 +43,7 @@
   - [x] Security definer functions drafted in `00003_invitations_and_recovery.sql` (Chapter 11)
 
 ## Milestone 5: Permissions and Join Approval
-- **Status:** Completed (Ready for Review)
+- **Status:** Completed
 - **Exit Criteria Status:**
   - [x] 14 capabilities enforced in RLS security definer logic (`FR-PRM-01`, `FR-PRM-02`, Chapter 12)
   - [x] Adversarial policy tests verifying denial of tampered-client writes across all 14 permissions
@@ -52,8 +52,19 @@
   - [x] Last-admin protection guard preventing removal or demotion of the final admin
   - [x] Database audit logging table `group_audit` implemented in `00004_permissions_matrix_and_audit.sql`
 
-## Next Milestone: Milestone 6 (Internal Messaging)
-- Realtime messaging delivery + REST keyset pagination `(created_at desc, id desc)` (ADR-009, Chapter 18)
-- Idempotent send via `client_message_id` with duplicate defense (`FR-MSG-03`)
-- Resumable media asset upload to Supabase storage bucket (`group-media`)
-- Unread count badges derived from `conversation_members.last_read_at` (`FR-MSG-02`)
+## Milestone 6: Internal Messaging
+- **Status:** Completed (Ready for Review)
+- **Exit Criteria Status:**
+  - [x] Realtime message delivery and REST keyset pagination `(created_at desc, id desc)` (ADR-009, Chapter 18)
+  - [x] Idempotent send via `client_message_id` with duplicate defense (`FR-MSG-03`)
+  - [x] Unread count calculated from `last_read_at` timestamp surviving process death (`FR-MSG-02`)
+  - [x] Immediate read revocation and thread cache clearing (`FR-MSG-05`)
+  - [x] Tombstone resolution for deleted senders ("Former member")
+  - [x] Message bubbles with inline retry affordance for failed transmissions
+  - [x] Room database entities (`MessageEntity`, `ConversationEntity`) and DAO (`ChatDao`) added
+
+## Next Milestone: Milestone 7 (Live Multi-Face AR)
+- MediaPipe Face Landmarker integration with GPU delegate (`FR-AR-01`, ADR-004)
+- Hungarian-style greedy IoU + landmark distance tracking preventing accessory swap (`FR-AR-03`)
+- One Euro temporal filtering per landmark group
+- Device capability tiering (Tier A 4 faces, Tier B 3 faces, Tier C 2 faces) (Chapter 15)
