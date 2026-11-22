@@ -76,3 +76,4 @@ class CameraCapabilityProber(private val context: Context) {
         return CameraCapabilities()
     }
 }
+

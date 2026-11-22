@@ -307,3 +307,4 @@ private fun CameraBottomBar(
         }
     }
 }
+

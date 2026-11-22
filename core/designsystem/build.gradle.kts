@@ -44,3 +44,4 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.compose.ui.test.junit4)
 }
+

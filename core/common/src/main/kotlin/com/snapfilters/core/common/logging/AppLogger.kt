@@ -26,3 +26,4 @@ class ConsoleAppLogger : AppLogger {
         throwable?.printStackTrace()
     }
 }
+

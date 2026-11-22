@@ -14,3 +14,4 @@ data class CaptureResult(
     val filterId: String? = null,
     val intensity: Float = 1.0f
 )
+

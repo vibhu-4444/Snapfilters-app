@@ -7,3 +7,4 @@ class SnapApplication : Application() {
         super.onCreate()
     }
 }
+

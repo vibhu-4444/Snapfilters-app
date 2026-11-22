@@ -14,3 +14,4 @@
 | **ADR-010** | Invitation Tokens as 32-Byte CSPRNG Random Secrets | Tokens hashed with SHA-256 at rest, never expose raw group IDs. Expiring and revocable. | Low |
 | **ADR-011** | Media Storage Tiering | Preview 2048 px default, original on explicit request. Stretches free-tier storage 8x. | Medium |
 | **ADR-012** | Concurrency Model | Kotlin Coroutines and StateFlow throughout; no RxJava. Jetpack Compose native. | Low |
+

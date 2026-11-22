@@ -8,3 +8,4 @@ interface AppClock {
 class SystemAppClock : AppClock {
     override fun nowEpochMillis(): Long = System.currentTimeMillis()
 }
+

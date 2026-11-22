@@ -67,3 +67,4 @@ val LightSnapColors = SnapColors(
 )
 
 val LocalSnapColors = staticCompositionLocalOf { DarkSnapColors }
+

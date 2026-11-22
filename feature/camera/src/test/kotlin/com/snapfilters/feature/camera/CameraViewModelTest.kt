@@ -190,3 +190,4 @@ class CameraViewModelTest {
         assertEquals(CameraAspectRatio.Ratio4_3, viewModel.uiState.value.settings.aspectRatio)
     }
 }
+

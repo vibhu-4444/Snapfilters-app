@@ -41,3 +41,4 @@ include(":feature:auth")
 include(":feature:groups")
 include(":feature:chat")
 include(":feature:settings")
+

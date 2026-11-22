@@ -14,3 +14,4 @@ data class CameraCapabilities(
     val hasEvRange: Boolean
         get() = minExposureIndex != 0 || maxExposureIndex != 0
 }
+

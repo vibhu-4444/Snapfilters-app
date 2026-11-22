@@ -31,3 +31,4 @@ data class SnapShapes(
 
 val LocalSnapSpacing = staticCompositionLocalOf { SnapSpacing() }
 val LocalSnapShapes = staticCompositionLocalOf { SnapShapes() }
+

@@ -49,3 +49,4 @@ data class SnapTypography(
 )
 
 val LocalSnapTypography = staticCompositionLocalOf { SnapTypography() }
+

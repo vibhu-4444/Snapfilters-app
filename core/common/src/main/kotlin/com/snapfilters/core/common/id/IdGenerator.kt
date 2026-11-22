@@ -19,3 +19,4 @@ class DefaultIdGenerator : IdGenerator {
         return bytes
     }
 }
+

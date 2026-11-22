@@ -34,3 +34,4 @@ data class CameraSettings(
     val exposureCompensationIndex: Int = 0,
     val isFocusLocked: Boolean = false
 )
+

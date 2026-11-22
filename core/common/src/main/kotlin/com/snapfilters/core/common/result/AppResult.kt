@@ -36,3 +36,4 @@ inline fun <T> AppResult<T>.onError(action: (AppResult.Error) -> Unit): AppResul
     if (this is AppResult.Error) action(this)
     return this
 }
+

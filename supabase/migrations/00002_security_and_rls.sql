@@ -121,3 +121,4 @@ create policy media_write on storage.objects for insert with check (
     bucket_id = 'group-media'
     and is_member(((storage.foldername(name))[1])::uuid)
 );
+

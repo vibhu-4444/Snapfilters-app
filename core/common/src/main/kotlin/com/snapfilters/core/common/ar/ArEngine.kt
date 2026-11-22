@@ -10,3 +10,4 @@ interface ArEngine {
     fun renderLiveFrame(frameBytes: ByteArray, width: Int, height: Int): Boolean
     fun renderStillImage(source: Bitmap, effectId: String): Bitmap
 }
+

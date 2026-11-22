@@ -142,3 +142,4 @@ create index if not exists idx_join_requests_pending on join_requests (group_id,
 create index if not exists idx_group_invitations_token on group_invitations (token_hash);
 create index if not exists idx_conversation_members_user on conversation_members (user_id) include (conversation_id, last_read_at);
 create index if not exists idx_media_assets_message on media_assets (message_id);
+

@@ -18,3 +18,4 @@ interface FilterEngine {
      */
     fun getPreviewShaderHandle(): Int
 }
+

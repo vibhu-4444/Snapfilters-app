@@ -223,3 +223,4 @@ class CameraViewModel(
         _uiState.update { it.copy(isTakingPicture = false) }
     }
 }
+

@@ -23,3 +23,4 @@ fun CameraRoute(
         modifier = modifier
     )
 }
+
