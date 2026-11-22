@@ -21,33 +21,34 @@ tasks.register("verifyModuleDependencies") {
     description = "Enforces ADR-001 architectural rules on project dependencies."
     doLast {
         val violations = mutableListOf<String>()
-        val featureModules = subprojects.filter { it.path.startsWith(":feature:") }
-        val coreModules = subprojects.filter { it.path.startsWith(":core:") }
+        val projectRootDir = project.rootDir
+        val featureDirs = File(projectRootDir, "feature").listFiles()?.filter { it.isDirectory } ?: emptyList()
+        val coreDirs = File(projectRootDir, "core").listFiles()?.filter { it.isDirectory } ?: emptyList()
 
-        featureModules.forEach { featureProject ->
-            featureProject.configurations.configureEach {
-                dependencies.forEach { dep ->
-                    if (dep is ProjectDependency) {
-                        val targetPath = dep.dependencyProject.path
-                        if (targetPath.startsWith(":feature:")) {
-                            violations.add("FORBIDDEN: ${featureProject.path} depends on ${targetPath}. Feature-to-feature dependencies are strictly banned (ADR-001).")
-                        }
+        featureDirs.forEach { featureDir ->
+            val buildFile = File(featureDir, "build.gradle.kts")
+            if (buildFile.exists()) {
+                val text = buildFile.readText()
+                featureDirs.forEach { otherFeature ->
+                    if (text.contains(":feature:${otherFeature.name}")) {
+                        violations.add("FORBIDDEN: :feature:${featureDir.name} depends on :feature:${otherFeature.name}. Feature-to-feature dependencies are strictly banned (ADR-001).")
                     }
                 }
             }
         }
 
-        coreModules.forEach { coreProject ->
-            coreProject.configurations.configureEach {
-                dependencies.forEach { dep ->
-                    if (dep is ProjectDependency) {
-                        val targetPath = dep.dependencyProject.path
-                        if (targetPath.startsWith(":feature:")) {
-                            violations.add("FORBIDDEN: ${coreProject.path} depends on ${targetPath}. Core modules cannot depend on feature modules.")
-                        }
-                        if (coreProject.path != ":core:database" && targetPath == ":core:network") {
-                            violations.add("FORBIDDEN: ${coreProject.path} depends on :core:network. Only :core:database may depend on :core:network.")
-                        }
+        coreDirs.forEach { coreDir ->
+            val buildFile = File(coreDir, "build.gradle.kts")
+            if (buildFile.exists()) {
+                val text = buildFile.readText()
+                featureDirs.forEach { featureDir ->
+                    if (text.contains(":feature:${featureDir.name}")) {
+                        violations.add("FORBIDDEN: :core:${coreDir.name} depends on :feature:${featureDir.name}. Core modules cannot depend on feature modules.")
+                    }
+                }
+                if (coreDir.name != "database" && coreDir.name != "network") {
+                    if (text.contains(":core:network")) {
+                        violations.add("FORBIDDEN: :core:${coreDir.name} depends on :core:network. Only :core:database may depend on :core:network.")
                     }
                 }
             }
