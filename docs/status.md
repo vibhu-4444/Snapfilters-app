@@ -75,7 +75,7 @@
   - [x] AR tray UI with quiet hint for undetected faces (Chapter 6 State matrix)
 
 ## Milestone 8: Still-Photo AR
-- **Status:** Completed (Ready for Review)
+- **Status:** Completed
 - **Exit Criteria Status:**
   - [x] Two-stage still-photo pipeline: ML Kit full-frame detection + 40% per-face crop passed to landmarker (ADR-005)
   - [x] Recomputed accessory placement at source capture resolution (`FR-AR-02`)
@@ -84,7 +84,13 @@
   - [x] Memory-disciplined horizontal tiled rendering (`TiledBitmapCompositor`) avoiding silent downscaling
   - [x] Graceful fallback when no faces are detected in still pass
 
-## Next Milestone: Milestone 9 (Testing, Performance, Production Readiness)
-- Measured benchmarks against NFR table (NFR-01 to NFR-08)
-- Privacy plan and account deletion cascade (`delete_account()`, Chapter 22)
-- Final production verification pass
+## Milestone 9: Testing, Performance, Production Readiness
+- **Status:** Completed
+- **Exit Criteria Status:**
+  - [x] Measured benchmarks against NFR table (NFR-01 to NFR-08) documented in `docs/benchmarks/BENCHMARKS.md`
+  - [x] Privacy plan and biometric policy documented in `docs/privacy/PRIVACY_PLAN.md`
+  - [x] Account deletion cascade (`delete_account()`, Chapter 22) implemented in `supabase/migrations/00005_account_deletion_and_privacy.sql`
+  - [x] Settings UI and account deletion confirmation flow implemented in `feature/settings`
+  - [x] Unit and adversarial cascade tests implemented in `AccountDeletionCascadeTest.kt`
+  - [x] All 9 engineering milestones from PRD v3.0 successfully implemented, documented, and delivered!
+
