@@ -58,6 +58,9 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
           tail -n 100 build_log.txt >> $GITHUB_STEP_SUMMARY || true
           echo '```' >> $GITHUB_STEP_SUMMARY
+          grep -E "FAILURE:|e: |error:|FAILED" build_log.txt | head -n 30 | while read -r line; do
+            echo "::error title=Gradle Build Error::$line"
+          done || true
 
       - name: Rename APK with Commit SHA
         run: |

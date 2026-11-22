@@ -1,0 +1,1 @@
+﻿# Snapfilters Consumer Rules
