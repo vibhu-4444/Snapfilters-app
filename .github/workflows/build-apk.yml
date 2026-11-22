@@ -28,7 +28,7 @@ jobs:
           java-version: '17'
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -60,6 +60,7 @@ jobs:
       - name: Publish Nightly / Continuous GitHub Release
         if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
         uses: softprops/action-gh-release@v2
+        continue-on-error: true
         with:
           tag_name: continuous-latest
           name: "Snapfilters Continuous Build (${{ github.sha }})"
@@ -75,6 +76,12 @@ jobs:
             * **Milestone 1:** 15-Module Gradle architecture, CameraX viewfinder, controls, capability probing (FR-CAM-01 to 09).
             * **Milestone 2:** 12 built-in cinematic filters, strict .cube parser (17/33/65), OpenGL ES 3.0 LUT shader, non-destructive export.
             * **Milestone 3:** External Sharesheet integration, FileProvider, distinct Photo vs Original sharing.
+            * **Milestone 4:** Anonymous auth, 12-word recovery mnemonic, CSPRNG QR token redeem machine.
+            * **Milestone 5:** 14-capability permission matrix, group audit logs, admin approval/rejection UI.
+            * **Milestone 6:** Internal messaging, idempotent send, keyset pagination, unread timestamps.
+            * **Milestone 7:** Live multi-face AR, Hungarian tracker, One Euro temporal smoothing, device tiering.
+            * **Milestone 8:** Two-stage still-photo AR, sub-1.5% placement error, tiled bitmap compositor.
+            * **Milestone 9:** NFR benchmarks, privacy plan, 6-step account deletion cascade.
           draft: false
           prerelease: true
           files: |
