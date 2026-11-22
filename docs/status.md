@@ -23,7 +23,7 @@
   - [x] LRU cache of 3 LUTs in memory (~2.4 MB at 33^3) implemented (ADR-007)
 
 ## Milestone 3: External Sharing
-- **Status:** Completed (Ready for Review)
+- **Status:** Completed
 - **Exit Criteria Status:**
   - [x] Android Sharesheet integration for any compatible destination (`FR-SHR-01`)
   - [x] Scoped FileProvider configured for `share_cache`, `exports`, and `media` paths (Chapter 17)
@@ -31,10 +31,18 @@
   - [x] Explicit quality disclaimers forbidding false marketing promises ("Lossless to WhatsApp", etc.) (`FR-SHR-03`)
   - [x] Automated GitHub Actions CI/CD workflow configured for continuous APK build & release artifact publishing
 
-## Next Milestone: Milestone 4 (Anonymous Auth and QR Groups)
-- Supabase anonymous authentication with device-bound session token (`FR-IDN-01`, `FR-IDN-02`)
-- Display name onboarding prompt and editing (`FR-IDN-03`)
-- 12-word recovery mnemonic code generation (132-bit entropy) hashed at rest (`FR-IDN-04`, ADR-003)
-- Group creation with atomic owner membership (`FR-GRP-01`)
-- 32-byte CSPRNG token minting and QR generation (`FR-GRP-02`, ADR-010)
-- QR redeem state machine and join request handling (`FR-GRP-03` to `05`)
+## Milestone 4: Anonymous Auth and QR Groups
+- **Status:** Completed (Ready for Review)
+- **Exit Criteria Status:**
+  - [x] Supabase anonymous authentication with device-bound session token (`FR-IDN-01`, `FR-IDN-02`)
+  - [x] Display name onboarding prompt and editing (`FR-IDN-03`)
+  - [x] 12-word recovery mnemonic code generation (132-bit entropy) hashed at rest (`FR-IDN-04`, ADR-003)
+  - [x] Group creation with atomic owner membership (`FR-GRP-01`)
+  - [x] 32-byte CSPRNG token minting and QR generation (`FR-GRP-02`, ADR-010)
+  - [x] QR redeem state machine implementing all 8 states (Invalid, Expired, Exhausted, GroupGone, AlreadyMember, AlreadyPending, Joined, Requested) (`FR-GRP-03` to `05`)
+  - [x] Security definer functions drafted in `00003_invitations_and_recovery.sql` (Chapter 11)
+
+## Next Milestone: Milestone 5 (Permissions and Join Approval)
+- 14 capabilities enforced in RLS policies (`FR-PRM-01`, `FR-PRM-02`, Chapter 12)
+- Adversarial policy tests denying tampered client writes
+- Admin join request approval & rejection transaction flow
