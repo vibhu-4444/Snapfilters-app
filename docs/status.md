@@ -53,7 +53,7 @@
   - [x] Database audit logging table `group_audit` implemented in `00004_permissions_matrix_and_audit.sql`
 
 ## Milestone 6: Internal Messaging
-- **Status:** Completed (Ready for Review)
+- **Status:** Completed
 - **Exit Criteria Status:**
   - [x] Realtime message delivery and REST keyset pagination `(created_at desc, id desc)` (ADR-009, Chapter 18)
   - [x] Idempotent send via `client_message_id` with duplicate defense (`FR-MSG-03`)
@@ -63,8 +63,19 @@
   - [x] Message bubbles with inline retry affordance for failed transmissions
   - [x] Room database entities (`MessageEntity`, `ConversationEntity`) and DAO (`ChatDao`) added
 
-## Next Milestone: Milestone 7 (Live Multi-Face AR)
-- MediaPipe Face Landmarker integration with GPU delegate (`FR-AR-01`, ADR-004)
-- Hungarian-style greedy IoU + landmark distance tracking preventing accessory swap (`FR-AR-03`)
-- One Euro temporal filtering per landmark group
-- Device capability tiering (Tier A 4 faces, Tier B 3 faces, Tier C 2 faces) (Chapter 15)
+## Milestone 7: Live Multi-Face AR
+- **Status:** Completed (Ready for Review)
+- **Exit Criteria Status:**
+  - [x] Live multi-face pipeline with device tiering (Tier A: 4 faces, Tier B: 3 faces, Tier C: 2 faces) (`FR-AR-01`, Chapter 15)
+  - [x] Hungarian-style greedy IoU (0.6) + landmark distance (0.4) tracker preventing accessory swap (`FR-AR-03`)
+  - [x] 40% frame width jump guard holding last pose for 300 ms (ADR-004)
+  - [x] 15-frame miss grace window surviving blinks and hand occlusions
+  - [x] 2-consecutive-frame activation guard preventing false-positive flashes
+  - [x] One Euro filter temporal smoothing per landmark group
+  - [x] AR tray UI with quiet hint for undetected faces (Chapter 6 State matrix)
+
+## Next Milestone: Milestone 8 (Still-Photo AR)
+- Two-stage still-photo pipeline: ML Kit full-frame detection + 40% per-face crop passed to landmarker (ADR-005)
+- Recomputing accessory placement at source capture resolution (`FR-AR-02`)
+- Placement error under 1.5% of face width vs manual reference
+- Memory-disciplined horizontal tiled rendering avoiding silent downscaling
