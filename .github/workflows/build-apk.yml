@@ -39,7 +39,17 @@ jobs:
         run: gradle verifyModuleDependencies --stacktrace
 
       - name: Build Debug APK
-        run: gradle :app:assembleDebug --stacktrace
+        id: assemble
+        run: |
+          gradle :app:assembleDebug --stacktrace 2>&1 | tee build_log.txt
+
+      - name: Publish Build Logs to Summary
+        if: always()
+        run: |
+          echo "## Gradle Build Log (Last 100 lines)" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -n 100 build_log.txt >> $GITHUB_STEP_SUMMARY || true
+          echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Rename APK with Commit SHA
         run: |
