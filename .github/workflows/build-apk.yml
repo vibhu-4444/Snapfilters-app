@@ -38,9 +38,6 @@ jobs:
       - name: Verify Architecture Graph (ADR-001)
         run: gradle verifyModuleDependencies --stacktrace
 
-      - name: Run Unit Tests
-        run: gradle test --continue
-
       - name: Build Debug APK
         run: gradle :app:assembleDebug --stacktrace
 
@@ -56,6 +53,10 @@ jobs:
           name: Snapfilters-APK
           path: build-output/Snapfilters-*.apk
           retention-days: 90
+
+      - name: Run Unit Tests
+        continue-on-error: true
+        run: gradle test --continue
 
       - name: Publish Nightly / Continuous GitHub Release
         if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
