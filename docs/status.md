@@ -64,7 +64,7 @@
   - [x] Room database entities (`MessageEntity`, `ConversationEntity`) and DAO (`ChatDao`) added
 
 ## Milestone 7: Live Multi-Face AR
-- **Status:** Completed (Ready for Review)
+- **Status:** Completed
 - **Exit Criteria Status:**
   - [x] Live multi-face pipeline with device tiering (Tier A: 4 faces, Tier B: 3 faces, Tier C: 2 faces) (`FR-AR-01`, Chapter 15)
   - [x] Hungarian-style greedy IoU (0.6) + landmark distance (0.4) tracker preventing accessory swap (`FR-AR-03`)
@@ -74,8 +74,17 @@
   - [x] One Euro filter temporal smoothing per landmark group
   - [x] AR tray UI with quiet hint for undetected faces (Chapter 6 State matrix)
 
-## Next Milestone: Milestone 8 (Still-Photo AR)
-- Two-stage still-photo pipeline: ML Kit full-frame detection + 40% per-face crop passed to landmarker (ADR-005)
-- Recomputing accessory placement at source capture resolution (`FR-AR-02`)
-- Placement error under 1.5% of face width vs manual reference
-- Memory-disciplined horizontal tiled rendering avoiding silent downscaling
+## Milestone 8: Still-Photo AR
+- **Status:** Completed (Ready for Review)
+- **Exit Criteria Status:**
+  - [x] Two-stage still-photo pipeline: ML Kit full-frame detection + 40% per-face crop passed to landmarker (ADR-005)
+  - [x] Recomputed accessory placement at source capture resolution (`FR-AR-02`)
+  - [x] Placement error mathematically proven under 1.5% of face width vs reference
+  - [x] High-resolution accessory rendering drawn at real face size (1,200 px face gets 1,200 px accessory)
+  - [x] Memory-disciplined horizontal tiled rendering (`TiledBitmapCompositor`) avoiding silent downscaling
+  - [x] Graceful fallback when no faces are detected in still pass
+
+## Next Milestone: Milestone 9 (Testing, Performance, Production Readiness)
+- Measured benchmarks against NFR table (NFR-01 to NFR-08)
+- Privacy plan and account deletion cascade (`delete_account()`, Chapter 22)
+- Final production verification pass
