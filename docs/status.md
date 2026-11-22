@@ -32,17 +32,28 @@
   - [x] Automated GitHub Actions CI/CD workflow configured for continuous APK build & release artifact publishing
 
 ## Milestone 4: Anonymous Auth and QR Groups
-- **Status:** Completed (Ready for Review)
+- **Status:** Completed
 - **Exit Criteria Status:**
   - [x] Supabase anonymous authentication with device-bound session token (`FR-IDN-01`, `FR-IDN-02`)
   - [x] Display name onboarding prompt and editing (`FR-IDN-03`)
   - [x] 12-word recovery mnemonic code generation (132-bit entropy) hashed at rest (`FR-IDN-04`, ADR-003)
   - [x] Group creation with atomic owner membership (`FR-GRP-01`)
   - [x] 32-byte CSPRNG token minting and QR generation (`FR-GRP-02`, ADR-010)
-  - [x] QR redeem state machine implementing all 8 states (Invalid, Expired, Exhausted, GroupGone, AlreadyMember, AlreadyPending, Joined, Requested) (`FR-GRP-03` to `05`)
+  - [x] QR redeem state machine implementing all 8 states (`FR-GRP-03` to `05`)
   - [x] Security definer functions drafted in `00003_invitations_and_recovery.sql` (Chapter 11)
 
-## Next Milestone: Milestone 5 (Permissions and Join Approval)
-- 14 capabilities enforced in RLS policies (`FR-PRM-01`, `FR-PRM-02`, Chapter 12)
-- Adversarial policy tests denying tampered client writes
-- Admin join request approval & rejection transaction flow
+## Milestone 5: Permissions and Join Approval
+- **Status:** Completed (Ready for Review)
+- **Exit Criteria Status:**
+  - [x] 14 capabilities enforced in RLS security definer logic (`FR-PRM-01`, `FR-PRM-02`, Chapter 12)
+  - [x] Adversarial policy tests verifying denial of tampered-client writes across all 14 permissions
+  - [x] Admin approval & rejection flow UI ([PendingRequestsScreen.kt](feature/groups/src/main/kotlin/com/snapfilters/feature/groups/ui/PendingRequestsScreen.kt))
+  - [x] Group permissions management UI ([GroupPermissionsScreen.kt](feature/groups/src/main/kotlin/com/snapfilters/feature/groups/ui/GroupPermissionsScreen.kt))
+  - [x] Last-admin protection guard preventing removal or demotion of the final admin
+  - [x] Database audit logging table `group_audit` implemented in `00004_permissions_matrix_and_audit.sql`
+
+## Next Milestone: Milestone 6 (Internal Messaging)
+- Realtime messaging delivery + REST keyset pagination `(created_at desc, id desc)` (ADR-009, Chapter 18)
+- Idempotent send via `client_message_id` with duplicate defense (`FR-MSG-03`)
+- Resumable media asset upload to Supabase storage bucket (`group-media`)
+- Unread count badges derived from `conversation_members.last_read_at` (`FR-MSG-02`)
