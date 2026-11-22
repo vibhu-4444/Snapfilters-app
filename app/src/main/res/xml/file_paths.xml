@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <cache-path name="share_cache" path="share/" />
+    <files-path name="exports" path="exports/" />
+    <external-files-path name="media" path="Pictures/" />
+</paths>
