@@ -11,7 +11,7 @@
   - [x] Supabase initial schemas (`00001_initial_schema.sql`) and RLS security rules (`00002_security_and_rls.sql`) drafted
 
 ## Milestone 2: Filters, LUTs, Editor, Local Saving
-- **Status:** Completed (Ready for Review)
+- **Status:** Completed
 - **Exit Criteria Status:**
   - [x] 12 built-in cinematic filters authored across 3 categories (Cinematic, Film, Natural) per Chapter 14
   - [x] Strict .cube parser implemented for 17, 33, 65 grid sizes with exact rejection messages (4 MB cap, float validation)
@@ -22,8 +22,19 @@
   - [x] Byte-for-byte original save verified via SHA-256 (FR-EDT-03)
   - [x] LRU cache of 3 LUTs in memory (~2.4 MB at 33^3) implemented (ADR-007)
 
-## Next Milestone: Milestone 3 (External Sharing)
-- Android Sharesheet integration for compatible destinations (`FR-SHR-01`)
-- Scoped FileProvider configured for `share_cache`, `exports`, and `media` paths (Chapter 17)
-- Distinct "Share Photo" (recompressed image/jpeg) vs "Share Original File" (untouched file) flows (`FR-SHR-02`)
-- Explicit quality disclaimers for third-party messaging apps like WhatsApp (`FR-SHR-03`)
+## Milestone 3: External Sharing
+- **Status:** Completed (Ready for Review)
+- **Exit Criteria Status:**
+  - [x] Android Sharesheet integration for any compatible destination (`FR-SHR-01`)
+  - [x] Scoped FileProvider configured for `share_cache`, `exports`, and `media` paths (Chapter 17)
+  - [x] Distinct "Share Photo" (image/jpeg) vs "Share Original File" (untouched bytes) flows (`FR-SHR-02`)
+  - [x] Explicit quality disclaimers forbidding false marketing promises ("Lossless to WhatsApp", etc.) (`FR-SHR-03`)
+  - [x] Automated GitHub Actions CI/CD workflow configured for continuous APK build & release artifact publishing
+
+## Next Milestone: Milestone 4 (Anonymous Auth and QR Groups)
+- Supabase anonymous authentication with device-bound session token (`FR-IDN-01`, `FR-IDN-02`)
+- Display name onboarding prompt and editing (`FR-IDN-03`)
+- 12-word recovery mnemonic code generation (132-bit entropy) hashed at rest (`FR-IDN-04`, ADR-003)
+- Group creation with atomic owner membership (`FR-GRP-01`)
+- 32-byte CSPRNG token minting and QR generation (`FR-GRP-02`, ADR-010)
+- QR redeem state machine and join request handling (`FR-GRP-03` to `05`)
