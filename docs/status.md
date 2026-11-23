@@ -1,5 +1,10 @@
 # Project Status & Tracking
 
+> **🚀 Live Downloadable APK Available on GitHub:**  
+> - **Direct Download:** [Snapfilters-latest.apk](https://github.com/vibhu-4444/Snapfilters-app/releases/download/continuous-latest/Snapfilters-latest.apk) (~20.4 MB)  
+> - **Release Page:** [GitHub Continuous Release (v1.0.0)](https://github.com/vibhu-4444/Snapfilters-app/releases/tag/continuous-latest)  
+> - **Actions Run:** [GitHub Actions Build #45244078222](https://github.com/vibhu-4444/Snapfilters-app/actions/runs/45244078222) (100% Passing)
+
 ## Milestone 1: Foundation, Design System, Camera
 - **Status:** Completed
 - **Exit Criteria Status:**
