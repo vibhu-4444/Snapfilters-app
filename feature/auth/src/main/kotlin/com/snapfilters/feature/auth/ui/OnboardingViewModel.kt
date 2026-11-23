@@ -15,8 +15,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 sealed interface OnboardingUiEvent {
-    data object OnboardingSuccess : OnboardingUiEvent()
-    data class ShowError(val message: String) : OnboardingUiEvent()
+    data object OnboardingSuccess : OnboardingUiEvent
+    data class ShowError(val message: String) : OnboardingUiEvent
 }
 
 data class OnboardingUiState(

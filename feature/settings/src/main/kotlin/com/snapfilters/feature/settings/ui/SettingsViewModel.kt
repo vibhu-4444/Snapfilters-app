@@ -14,8 +14,8 @@ import kotlinx.coroutines.launch
 import java.io.File
 
 sealed interface SettingsUiEvent {
-    data class ShowToast(val message: String) : SettingsUiEvent()
-    data object AccountDeleted : SettingsUiEvent()
+    data class ShowToast(val message: String) : SettingsUiEvent
+    data object AccountDeleted : SettingsUiEvent
 }
 
 data class SettingsUiState(

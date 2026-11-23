@@ -23,9 +23,9 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 sealed interface CameraUiEvent {
-    data object TriggerCapture : CameraUiEvent()
-    data class ShowToast(val message: String) : CameraUiEvent()
-    data object CancelCountdown : CameraUiEvent()
+    data object TriggerCapture : CameraUiEvent
+    data class ShowToast(val message: String) : CameraUiEvent
+    data object CancelCountdown : CameraUiEvent
 }
 
 data class CameraUiState(

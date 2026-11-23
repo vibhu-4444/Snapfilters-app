@@ -17,8 +17,8 @@ import kotlinx.coroutines.launch
 import java.util.UUID
 
 sealed interface ChatUiEvent {
-    data class ShowToast(val message: String) : ChatUiEvent()
-    data object ScrollToBottom : ChatUiEvent()
+    data class ShowToast(val message: String) : ChatUiEvent
+    data object ScrollToBottom : ChatUiEvent
 }
 
 data class ChatUiState(

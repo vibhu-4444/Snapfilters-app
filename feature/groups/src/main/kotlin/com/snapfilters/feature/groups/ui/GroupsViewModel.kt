@@ -17,9 +17,9 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 sealed interface GroupUiEvent {
-    data class ShowToast(val message: String) : GroupUiEvent()
-    data class GroupCreated(val group: Group) : GroupUiEvent()
-    data class QrReady(val payload: String) : GroupUiEvent()
+    data class ShowToast(val message: String) : GroupUiEvent
+    data class GroupCreated(val group: Group) : GroupUiEvent
+    data class QrReady(val payload: String) : GroupUiEvent
 }
 
 data class GroupsUiState(

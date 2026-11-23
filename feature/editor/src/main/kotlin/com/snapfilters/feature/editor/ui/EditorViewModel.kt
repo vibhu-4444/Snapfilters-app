@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
 import java.io.File
 
 sealed interface EditorUiEvent {
-    data class ExportComplete(val success: Boolean, val message: String) : EditorUiEvent()
+    data class ExportComplete(val success: Boolean, val message: String) : EditorUiEvent
 }
 
 data class EditorUiState(
