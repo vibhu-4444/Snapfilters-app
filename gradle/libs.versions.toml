@@ -14,6 +14,7 @@ supabase = "3.0.2"
 ktor = "3.0.1"
 mediapipe = "0.10.14"
 mlkit-face = "16.1.7"
+camerakit = "1.51.0"
 security-crypto = "1.1.0-alpha06"
 junit = "4.13.2"
 androidx-junit = "1.2.1"
@@ -48,6 +49,10 @@ camerax-core = { group = "androidx.camera", name = "camera-core", version.ref = 
 camerax-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "camerax" }
 camerax-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "camerax" }
 camerax-view = { group = "androidx.camera", name = "camera-view", version.ref = "camerax" }
+
+# Snap Camera Kit SDK
+camerakit-core = { group = "com.snap.camerakit", name = "camerakit", version.ref = "camerakit" }
+camerakit-camerax = { group = "com.snap.camerakit", name = "support-camerax", version.ref = "camerakit" }
 
 # Coroutines
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }

@@ -36,6 +36,10 @@ dependencies {
     implementation(libs.compose.ui)
     implementation(libs.compose.material3)
 
+    // Snap Camera Kit SDK
+    implementation(libs.camerakit.core)
+    implementation(libs.camerakit.camerax)
+
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
 }

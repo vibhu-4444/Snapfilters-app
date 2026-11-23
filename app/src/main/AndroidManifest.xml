@@ -46,6 +46,11 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
+        <!-- Snap Camera Kit SDK API Token (from camera-kit.snap.com) -->
+        <meta-data
+            android:name="com.snap.camerakit.api.token"
+            android:value="PLACEHOLDER_SNAP_API_TOKEN" />
+
     </application>
 
 </manifest>
