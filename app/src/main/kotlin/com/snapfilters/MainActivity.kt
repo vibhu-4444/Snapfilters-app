@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
         checkPermission()
 
         setContent {
-            SnapTheme {
+            SnapTheme(darkTheme = false) {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
