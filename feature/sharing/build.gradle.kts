@@ -32,6 +32,8 @@ dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:designsystem"))
 
+    implementation(libs.androidx.core.ktx)
+
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)
     implementation(libs.compose.material3)
